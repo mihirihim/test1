@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<style>
+    p {
+        color: rgb(0, 0, 0);
+        height: 30px;
+        font-size: 20px;
+        background: rgb(200, 209, 212);
+    }
+</style>
+
+<body>
+    <h2>Enter A Number</h2>
+    <input type="text" name="prime" placeholder="Enter Number" id="prime">
+    <button onclick="check()">Check</button>
+    <p id="message"></p>
+    <script>
+        function check() {
+
+            var number = document.getElementById("prime").value;
+            if (isNaN(number)) {
+                document.getElementById("message").textContent = "This is Not A Number"
+                number = document.getElementById("prime").value = ""
+            } else {
+                checkprimeno(number);
+            }
+        }
+
+        function checkprimeno(number) {
+            var flag = 0;
+            for (var i = 2; i <= (number - 1); i++) {
+                if (number % i === 0) {
+                    flag = 1;
+                    break;
+                }
+            }
+
+            if (flag === 1) {
+                document.getElementById("message").textContent = "This is Not A  PRIME Number"
+            } else {
+                document.getElementById("message").textContent = "This is A  PRIME Number"
+                number = document.getElementById("prime").value = ""
+            }
+        }
+    </script>
+</body>
+
+</html>
